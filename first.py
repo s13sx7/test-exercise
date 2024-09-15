@@ -47,9 +47,10 @@ def parser() -> None:
         url = "/market-data/new-stock-exchange-listings-today"
         step = WebDriverWait(driver=driver, timeout=5).until(expected_conditions.presence_of_element_located((By.XPATH, f'//a[@href="'+url+'"]')))
         actions.click(step).perform()
-        step = WebDriverWait(driver=driver, timeout=3).until(expected_conditions.presence_of_element_located((By.XPATH, '//button[@aria-label="Pre Open Book - REVATHIEQU"]')))
+        url = '/market-data/new-stock-exchange-listings-recent'
+        step = WebDriverWait(driver=driver, timeout=3).until(expected_conditions.presence_of_element_located((By.XPATH, f'//a[@href="'+url+'"]')))
         actions.click(step).perform()
-        time.sleep(5)
+        time.sleep(3)
         driver.execute_script('window.scrollBy(0, 500)')
         time.sleep(3)
     except Exception as e:
